@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI 글쓰기 에이전트 - AI MEKKUM</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .agent-container {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+        .control-panel {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-radius: 16px;
+            padding: 28px;
+            margin-bottom: 24px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            color: #2d3e50;
+            margin-bottom: 8px;
+            font-size: 1.05em;
+        }
+        .form-group input, .form-group textarea, .form-group select {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e6e9ef;
+            border-radius: 8px;
+            font-size: 1em;
+            font-family: 'Noto Sans KR', sans-serif;
+            transition: border-color 0.3s;
+        }
+        .form-group input:focus, .form-group textarea:focus, .form-group select:focus {
+            outline: none;
+            border-color: #4a6fa5;
+        }
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+        .btn-generate {
+            width: 100%;
+            padding: 16px;
+            background: linear-gradient(135deg, #4a6fa5 0%, #2d3e50 100%);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.15em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-family: 'Noto Sans KR', sans-serif;
+        }
+        .btn-generate:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(74, 111, 165, 0.3);
+        }
+        .btn-generate:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+            transform: none;
+        }
+        .output-panel {
+            background: white;
+            border-radius: 16px;
+            padding: 28px;
+            margin-bottom: 24px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+            border: 2px solid #e6e9ef;
+        }
+        .output-panel h3 {
+            color: #2d3e50;
+            margin-top: 0;
+            margin-bottom: 16px;
+            font-size: 1.3em;
+        }
+        .generated-prompt {
+            background: #f7f9fc;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #4a6fa5;
+            font-family: 'Noto Sans KR', sans-serif;
+            line-height: 1.8;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+        .btn-copy {
+            margin-top: 12px;
+            padding: 10px 20px;
+            background: #2d3e50;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.95em;
+            font-weight: 600;
+        }
+        .btn-copy:hover {
+            background: #4a6fa5;
+        }
+        .info-box {
+            background: #eef7ff;
+            padding: 16px;
+            border-radius: 8px;
+            border-left: 4px solid #4a6fa5;
+            margin-bottom: 24px;
+        }
+        .info-box p {
+            margin: 0;
+            line-height: 1.8;
+            color: #2d3e50;
+        }
+        .chip-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 8px;
+        }
+        .chip {
+            display: inline-block;
+            padding: 6px 14px;
+            background: #e6e9ef;
+            border-radius: 16px;
+            font-size: 0.9em;
+            cursor: pointer;
+            transition: all 0.2s;
+            border: 2px solid transparent;
+        }
+        .chip:hover {
+            background: #d4d8e0;
+        }
+        .chip.selected {
+            background: #4a6fa5;
+            color: white;
+            border-color: #2d3e50;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1><a href="index.html">나의 AI 프로젝트</a></h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">홈</a></li>
+                <li><a href="ai_edu.html">AI 교육자료</a></li>
+                <li><a href="portfolio.html">나의 작업물</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="agent-container">
+            <h2 style="text-align: center; color: #2d3e50; margin-bottom: 10px;">✍️ AI 글쓰기 에이전트</h2>
+            <p style="text-align: center; color: #666; margin-bottom: 30px;">
+                상황과 문체를 선택하면 맞춤 프롬프트를 생성합니다. ChatGPT, 뤼튼 등에 바로 붙여넣어 사용하세요.
+            </p>
+
+            <div class="info-box">
+                <p><strong>💡 사용 방법:</strong> 아래 양식을 채우면 자동으로 프롬프트가 생성됩니다. "프롬프트 복사" 후 <a href="https://chatgpt.com" target="_blank" style="color:#4a6fa5; font-weight:600;">ChatGPT</a> 또는 <a href="https://wrtn.ai" target="_blank" style="color:#7b68ee; font-weight:600;">뤼튼</a>에 붙여넣으세요.</p>
+            </div>
+
+            <!-- Control Panel -->
+            <div class="control-panel">
+                <div class="form-group">
+                    <label for="topic">📝 글 주제</label>
+                    <input type="text" id="topic" placeholder="예: 가을 산책의 추억" />
+                </div>
+
+                <div class="form-group">
+                    <label for="context">🎯 글쓰기 맥락 (상황)</label>
+                    <div class="chip-group" id="context-chips">
+                        <span class="chip" data-value="자서전">자서전</span>
+                        <span class="chip" data-value="에세이">에세이</span>
+                        <span class="chip" data-value="블로그">블로그</span>
+                        <span class="chip" data-value="일기">일기</span>
+                        <span class="chip" data-value="칼럼">칼럼</span>
+                        <span class="chip" data-value="보고서">보고서</span>
+                        <span class="chip" data-value="편지">편지</span>
+                    </div>
+                    <input type="text" id="context-custom" placeholder="직접 입력..." style="margin-top:8px;" />
+                </div>
+
+                <div class="form-group">
+                    <label for="tone">🎨 문체 (Tone)</label>
+                    <div class="chip-group" id="tone-chips">
+                        <span class="chip" data-value="친근하고 따뜻한">친근하고 따뜻한</span>
+                        <span class="chip" data-value="격식있는">격식있는</span>
+                        <span class="chip" data-value="유머러스한">유머러스한</span>
+                        <span class="chip" data-value="진지하고 성찰적인">진지하고 성찰적인</span>
+                        <span class="chip" data-value="간결하고 명확한">간결하고 명확한</span>
+                    </div>
+                    <input type="text" id="tone-custom" placeholder="직접 입력..." style="margin-top:8px;" />
+                </div>
+
+                <div class="form-group">
+                    <label for="length">📏 글 분량</label>
+                    <select id="length">
+                        <option value="300자 내외">300자 내외</option>
+                        <option value="500자 내외" selected>500자 내외</option>
+                        <option value="800자 내외">800자 내외</option>
+                        <option value="1000자 이상">1000자 이상</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="structure">🏗️ 구성</label>
+                    <select id="structure">
+                        <option value="2단락">2단락</option>
+                        <option value="3단락" selected>3단락</option>
+                        <option value="4단락">4단락</option>
+                        <option value="5단락 이상">5단락 이상</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="special">✨ 특별 요청 (선택사항)</label>
+                    <textarea id="special" placeholder="예: 마지막에 한 줄 교훈 추가, 시적 표현 포함, 구체적 예시 3개 넣기 등"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="audience">👥 대상 독자 (Target audience)</label>
+                    <select id="audience">
+                        <option value="일반 성인">일반 성인</option>
+                        <option value="중장년(40-60세)" selected>중장년(40-60세)</option>
+                        <option value="청년">청년</option>
+                        <option value="전문가">전문가</option>
+                        <option value="초보자">초보자</option>
+                        <option value="가족/친지">가족/친지</option>
+                        <option value="고객">고객</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="purpose">🎯 목적 (Purpose)</label>
+                    <div class="chip-group" id="purpose-chips">
+                        <span class="chip" data-value="정보 전달">정보 전달</span>
+                        <span class="chip" data-value="감동/공감">감동/공감</span>
+                        <span class="chip" data-value="설득/콜투액션">설득/콜투액션</span>
+                        <span class="chip" data-value="기록/보존">기록/보존</span>
+                        <span class="chip" data-value="오락/가독성">오락/가독성</span>
+                    </div>
+                    <input type="text" id="purpose-custom" placeholder="직접 입력..." style="margin-top:8px;" />
+                </div>
+
+                <div class="form-group">
+                    <label for="voice">🗣️ 화자/시점 (Voice)</label>
+                    <select id="voice">
+                        <option value="1인칭(저)">1인칭(저)</option>
+                        <option value="1인칭(우리)">1인칭(우리)</option>
+                        <option value="2인칭(당신)">2인칭(당신)</option>
+                        <option value="3인칭(그/그녀)">3인칭(그/그녀)</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="formality">🔒 격식/정중도</label>
+                    <select id="formality">
+                        <option value="격식있는">격식있는</option>
+                        <option value="보통" selected>보통</option>
+                        <option value="친근한">친근한</option>
+                        <option value="매우 친근한">매우 친근한</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>🔁 변환/작업(선택)</label>
+                    <div style="display:flex; gap:10px; flex-wrap:wrap;">
+                        <label><input type="checkbox" id="op_expand" /> 내용 확장</label>
+                        <label><input type="checkbox" id="op_shorten" /> 요약/축약</label>
+                        <label><input type="checkbox" id="op_rewrite" /> 재작성/문체변환</label>
+                        <label><input type="checkbox" id="op_translate" /> 번역</label>
+                        <label><input type="checkbox" id="op_proofread" /> 교정(맞춤법/문법)</label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="edits">✂️ 편집 옵션</label>
+                    <select id="edits">
+                        <option value="문장 다듬기">문장 다듬기</option>
+                        <option value="문체 일관성 유지" selected>문체 일관성 유지</option>
+                        <option value="중복 제거">중복 제거</option>
+                        <option value="문장 길이 조정">문장 길이 조정</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="keywords">🔎 핵심 키워드 (콤마로 구분)</label>
+                    <input type="text" id="keywords" placeholder="예: 가족, 추억, 가을" />
+                </div>
+
+                <div class="form-group">
+                    <label for="apikey">🔐 OpenAI API Key (추후 입력)</label>
+                    <input type="password" id="apikey" placeholder="추후 여기에 입력하세요 (현재 비활성)" disabled />
+                </div>
+
+                <button class="btn-generate" onclick="generatePrompt()">🚀 프롬프트 생성</button>
+            </div>
+
+            <!-- Output Panel -->
+            <div class="output-panel" id="output-panel" style="display:none;">
+                <h3>📋 생성된 프롬프트</h3>
+                <div class="generated-prompt" id="generated-prompt"></div>
+                <button class="btn-copy" onclick="copyPrompt()">📋 프롬프트 복사</button>
+                <button class="btn-copy" onclick="openChatGPT()" style="background:#4a6fa5; margin-left:8px;">💬 ChatGPT 열기</button>
+                <button class="btn-copy" onclick="openWritn()" style="background:#7b68ee; margin-left:8px;">✨ 뤼튼 열기</button>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 AI MEKKUM - 함께 채워가는 AI 시대</p>
+    </footer>
+
+    <script>
+        let selectedContext = '';
+        let selectedTone = '';
+        let selectedPurpose = '';
+
+        // Generic chip selection handler for multiple groups
+        document.querySelectorAll('.chip-group').forEach(group => {
+            group.addEventListener('click', function(e) {
+                const chip = e.target.closest('.chip');
+                if (!chip) return;
+                // single-select within group
+                group.querySelectorAll('.chip').forEach(c => c.classList.remove('selected'));
+                chip.classList.add('selected');
+
+                if (group.id === 'context-chips') {
+                    selectedContext = chip.dataset.value;
+                    document.getElementById('context-custom').value = '';
+                } else if (group.id === 'tone-chips') {
+                    selectedTone = chip.dataset.value;
+                    document.getElementById('tone-custom').value = '';
+                } else if (group.id === 'purpose-chips') {
+                    selectedPurpose = chip.dataset.value;
+                    document.getElementById('purpose-custom').value = '';
+                }
+            });
+        });
+
+        function collectTransformations() {
+            const ops = [];
+            if (document.getElementById('op_expand').checked) ops.push('내용 확장');
+            if (document.getElementById('op_shorten').checked) ops.push('요약/축약');
+            if (document.getElementById('op_rewrite').checked) ops.push('재작성/문체변환');
+            if (document.getElementById('op_translate').checked) ops.push('번역');
+            if (document.getElementById('op_proofread').checked) ops.push('교정(맞춤법/문법)');
+            return ops;
+        }
+
+        function generatePrompt() {
+            const topic = document.getElementById('topic').value.trim();
+            const contextCustom = document.getElementById('context-custom').value.trim();
+            const toneCustom = document.getElementById('tone-custom').value.trim();
+            const length = document.getElementById('length').value;
+            const structure = document.getElementById('structure').value;
+            const special = document.getElementById('special').value.trim();
+            const audience = document.getElementById('audience').value;
+            const purposeCustom = document.getElementById('purpose-custom').value.trim();
+            const voice = document.getElementById('voice').value;
+            const formality = document.getElementById('formality').value;
+            const edits = document.getElementById('edits').value;
+            const keywords = document.getElementById('keywords').value.trim();
+
+            if (!topic) {
+                alert('글 주제를 입력해주세요.');
+                return;
+            }
+
+            const context = contextCustom || selectedContext || '에세이';
+            const tone = toneCustom || selectedTone || '친근하고 따뜻한';
+            const purpose = purposeCustom || selectedPurpose || '정보 전달';
+
+            const transforms = collectTransformations();
+
+            let prompt = '';
+            prompt += `역할: 당신은 ${tone} 문체를 구사하는 전문 작가입니다.\n`;
+            prompt += `대상: ${audience}\n`;
+            prompt += `목적: ${purpose}\n`;
+            prompt += `화자/시점: ${voice} | 격식: ${formality}\n\n`;
+
+            prompt += `요청: 아래 조건을 지켜 '${topic}'에 대해 ${context} 형식으로 글을 작성해주세요.\n`;
+            prompt += `- 분량: ${length}\n`;
+            prompt += `- 구성: ${structure}\n`;
+            prompt += `- 문체: ${tone}\n`;
+            prompt += `- 편집옵션: ${edits}\n`;
+            if (keywords) prompt += `- 핵심키워드: ${keywords}\n`;
+            if (special) prompt += `- 특별요청: ${special}\n`;
+            if (transforms.length) prompt += `- 추가작업: ${transforms.join(', ')}\n`;
+
+            prompt += `\n출력요구: 작성 후 아래를 포함하세요.\n1) 이 글의 핵심 메시지(한 문장)\n2) 개선 포인트 3가지\n`;
+
+            document.getElementById('generated-prompt').textContent = prompt;
+            document.getElementById('output-panel').style.display = 'block';
+            document.getElementById('output-panel').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+
+        async function copyPrompt(e) {
+            const prompt = document.getElementById('generated-prompt').textContent;
+            try {
+                await navigator.clipboard.writeText(prompt);
+                const btn = e && e.currentTarget ? e.currentTarget : null;
+                if (btn) {
+                    const original = btn.textContent;
+                    btn.textContent = '✅ 복사 완료!';
+                    setTimeout(() => btn.textContent = original, 2000);
+                } else {
+                    alert('프롬프트가 복사되었습니다.');
+                }
+            } catch (err) {
+                alert('복사에 실패했습니다. 수동으로 선택 후 복사하세요.');
+            }
+        }
+
+        function openChatGPT() {
+            window.open('https://chatgpt.com', '_blank');
+        }
+
+        function openWritn() {
+            window.open('https://wrtn.ai', '_blank');
+        }
+    </script>
+</body>
+</html>

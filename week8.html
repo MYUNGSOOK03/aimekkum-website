@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>8주차: AI로 추억의 노래 만들기</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1><a href="index.html">나의 AI 프로젝트</a></h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">홈</a></li>
+                <li><a href="ai_edu.html">AI 교육자료</a></li>
+                <li><a href="portfolio.html">나의 작업물</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="week-content">
+            <h2 style="font-size: 2em;">8주차: AI로 추억의 노래 만들기</h2>
+            <p style="font-size: 1.15em; color: #555; margin-top: 15px;">
+                🎵 내 이야기를 담은 노래를 직접 만들어보세요!<br>
+                가사만 쓰면 AI가 멜로디를 붙여드립니다. (완전 무료!)
+            </p>
+            <div class="note-box" style="background-color: #eef7ff; padding: 16px; border-left: 4px solid #4a6fa5; margin: 16px 0; font-size: 1.05em;">
+                <h3 style="margin-top: 0;">🚀 빠른 실행</h3>
+                <ul style="line-height: 1.9; margin-bottom: 0;">
+                    <li><strong>준비물:</strong> PC 또는 스마트폰, 구글 계정</li>
+                    <li><strong>바로가기:</strong> <a href="https://suno.com" target="_blank" style="font-weight: 600; color: #2d3e50; text-decoration: underline;">Suno 접속</a></li>
+                    <li><strong>오늘 만들 것:</strong> 내 스토리를 담은 2분 노래(MP3)</li>
+                </ul>
+            </div>
+
+            <div class="content-section">
+                <h3>🧰 준비물</h3>
+                <ul>
+                    <li>ChatGPT 또는 메모장</li>
+                    <li>Google 계정(Suno 가입 시 편리)</li>
+                </ul>
+                <h3>🔗 바로가기</h3>
+                <ul>
+                    <li><a href="https://suno.com" target="_blank">Suno 접속</a></li>
+                </ul>
+            </div>
+
+            <div class="learning-objectives" style="font-size: 1.15em;">
+                <h3>🎯 이번 주 목표</h3>
+                <ul style="line-height: 2;">
+                    <li>✅ 내 인생 이야기를 가사로 만들기</li>
+                    <li>✅ AI로 완성된 노래 만들기 (멜로디 + 보컬)</li>
+                    <li>✅ 가족 기념일, 동창회 주제가 만들기</li>
+                    <li>✅ 트로트, 가요, 발라드 등 다양한 장르 체험</li>
+                </ul>
+            </div>
+
+            <div class="content-section" style="font-size: 1.1em;">
+                <h3>💡 1. 어떤 노래를 만들 수 있나요?</h3>
+                
+                <div class="example-box" style="background-color: #fff3e0; padding: 25px; font-size: 1.1em;">
+                    <h4>💡 중장년층 인기 노래 아이디어</h4>
+                    <ul style="line-height: 2.2;">
+                        <li>🎂 <strong>생일 축하 노래:</strong> "엄마/아빠 70세 생신 축하 노래"</li>
+                        <li>👵 <strong>부모님 감사 노래:</strong> "평생 고생하신 부모님께 드리는 노래"</li>
+                        <li>💑 <strong>결혼기념일 노래:</strong> "금혼식(50주년) 축하 노래"</li>
+                        <li>🎓 <strong>동창회 주제가:</strong> "○○고등학교 △△기 동창회 노래"</li>
+                        <li>🏡 <strong>고향 생각:</strong> "어릴 적 살던 시골 마을 추억"</li>
+                        <li>👶 <strong>손주 사랑:</strong> "사랑하는 손자 손녀에게"</li>
+                        <li>⛰️ <strong>취미 생활:</strong> "등산 동호회 회가", "낚시의 즐거움"</li>
+                        <li>💐 <strong>고인 추모:</strong> "그리운 당신을 기억하며"</li>
+                    </ul>
+                </div>
+            </div>
+                
+                <h4>추천 시스템의 비밀</h4>
+                <p>넷플릭스, 유튜브, 스포티파이... 왜 내가 좋아할 만한 콘텐츠를 정확히 추천할까요?</p>
+                
+                <div class="concept-box">
+                    <p><strong>1. 협업 필터링 (Collaborative Filtering)</strong></p>
+                    <p>"나와 비슷한 취향을 가진 사람들이 좋아한 것을 추천"</p>
+                    <p>예: A와 B가 같은 노래 10곡을 좋아함 → A가 좋아한 11번째 노래를 B에게 추천</p>
+
+                    <p><strong>2. 콘텐츠 기반 필터링 (Content-based Filtering)</strong></p>
+                    <p>"내가 좋아한 콘텐츠와 비슷한 것을 추천"</p>
+                    <p>예: 발라드를 많이 들음 → 다른 발라드 추천</p>
+
+                    <p><strong>3. 하이브리드 방식</strong></p>
+                    <p>위 두 가지를 결합하여 더 정확한 추천</p>
+                </div>
+
+                <h4>AI로 나만의 추천 받기</h4>
+                <div class="example-box">
+                    <p><strong>프롬프트:</strong></p>
+                    <blockquote>
+                        내가 최근에 본 영화:
+                        1. 인터스텔라 (우주 SF)
+                        2. 어바웃 타임 (로맨스)
+                        3. 인사이드 아웃 (애니메이션)
+                        
+                        이 세 영화를 좋아하는 사람에게 추천할 영화 5개를 골라줘.
+                        각 영화마다 왜 추천하는지 이유도 설명해줘.
+                    </blockquote>
+                </div>
+            </div>
+
+            <div class="content-section" style="background-color: #e8f5e9; padding: 25px; border-radius: 10px; font-size: 1.1em;">
+                <h3>✍️ 2. AI로 가사 쓰기 - 내 이야기를 노래로</h3>
+                
+                <p style="font-size: 1.15em; line-height: 1.8;">
+                    복잡하지 않습니다! ChatGPT에게 <strong>"이런 노래를 만들고 싶어요"</strong>라고 말하면,
+                    AI가 가사를 작성해줍니다. 그걸 내 마음대로 고치면 됩니다!
+                </p>
+
+                <h4 style="font-size: 1.3em;">📝 실전 예시: 결혼 30주년 기념 노래</h4>
+                
+                <div class="note-box" style="background-color: #fff3cd; padding: 20px; margin: 15px 0;">
+                    <p><strong>Step 1: ChatGPT에게 이렇게 말하세요</strong></p>
+                    <blockquote style="font-size: 1.1em; background-color: white; padding: 15px;">
+                        결혼 30주년 기념 노래 가사를 만들어주세요.
+                        
+                        주제: 아내/남편과 함께한 30년의 감사
+                        분위기: 잔잔하고 감동적인 발라드 느낌
+                        내용: 처음 만났을 때, 힘들었던 시기, 함께 이겨낸 이야기, 앞으로의 약속
+                        
+                        가사 구조:
+                        - 1절 (처음 만났던 날)
+                        - 후렴구 (감사와 사랑)
+                        - 2절 (함께한 시간들)
+                        - 후렴구 반복
+                    </blockquote>
+                </div>
+
+                <div class="example-box" style="background-color: #e3f2fd; padding: 20px; margin: 20px 0;">
+                    <h4>✨ AI가 만들어준 가사 예시</h4>
+                    
+                    <p><strong>"그대와 함께 30년" (발라드)</strong></p>
+                    
+                    <p><em>[1절]</em><br>
+                    그날 우연히 마주친 그대<br>
+                    수줍은 미소가 눈부시던 날<br>
+                    설레는 마음으로 다가갔죠<br>
+                    그렇게 우리 인연이 시작됐네요</p>
+
+                    <p><em>[후렴]</em><br>
+                    그대와 함께한 서른 해<br>
+                    웃음도 눈물도 모두 함께<br>
+                    당신이 있어 견딜 수 있었어요<br>
+                    감사해요 사랑해요 내 사람</p>
+
+                    <p><em>[2절]</em><br>
+                    힘들고 지칠 때도 있었지만<br>
+                    손 잡고 함께 걸어왔잖아요<br>
+                    우리 아이들 자라는 모습에<br>
+                    행복했던 순간들이 떠올라요</p>
+
+                    <p><em>[후렴 반복]</em></p>
+                    
+                    <p style="color: #2e7d32; font-weight: bold; margin-top: 15px;">
+                        💡 이 가사를 내 상황에 맞게 수정하세요!<br>
+                        예: "서른 해" → "마흔 해", 구체적인 추억 추가 등
+                    </p>
+                </div>
+
+                <h4 style="font-size: 1.3em; margin-top: 30px;">🎤 더 많은 가사 예시 (복사해서 사용하세요!)</h4>
+                
+                <div class="example-box" style="padding: 20px; margin: 15px 0;">
+                    <p><strong>📌 ChatGPT 프롬프트 모음</strong></p>
+                    
+                    <p style="font-weight: bold; margin-top: 15px;">👴 부모님 감사 노래 (트로트풍)</p>
+                    <blockquote>
+                        부모님께 드리는 감사 노래 가사를 써주세요.
+                        트로트 스타일로, 밝고 신나는 느낌으로.
+                        "엄마 아빠", "고마워요", "효도" 같은 단어 포함.
+                        1절, 후렴, 2절, 후렴 구조로.
+                    </blockquote>
+                    
+                    <p style="font-weight: bold; margin-top: 20px;">🏫 동창회 주제가 (경쾌한 가요)</p>
+                    <blockquote>
+                        ○○고등학교 △△기 동창회 주제가 가사를 만들어주세요.
+                        학창시절 추억, 우정, 다시 만난 반가움을 담아서.
+                        밝고 신나는 분위기로.
+                        "추억", "친구", "다시 만난" 같은 단어 포함.
+                    </blockquote>
+                    
+                    <p style="font-weight: bold; margin-top: 20px;">🏡 고향 그리움 (발라드)</p>
+                    <blockquote>
+                        어린 시절 살던 시골 고향을 그리워하는 노래 가사를 써주세요.
+                        잔잔한 발라드 느낌으로.
+                        논밭, 산, 개울, 어머니 등 시골 풍경 포함.
+                        향수와 그리움이 느껴지게.
+                    </blockquote>
+                    
+                    <p style="font-weight: bold; margin-top: 20px;">👶 손주 사랑 (동요 스타일)</p>
+                    <blockquote>
+                        사랑하는 손자/손녀에게 주는 노래 가사를 만들어주세요.
+                        할머니/할아버지의 사랑이 담긴 따뜻한 노래.
+                        "사랑해", "우리 강아지" 같은 애칭 포함.
+                        귀엽고 따뜻한 느낌으로.
+                    </blockquote>
+                </div>
+            </div>
+
+            <div class="content-section">
+                <h3>🗂 예시 프롬프트</h3>
+                <p style="margin: 0 0 10px; color: #555;">ChatGPT/Suno에 그대로 사용하세요.</p>
+                <ul>
+                    <li>"[대상]에게 전하는 [감정]의 메시지를 담은 가사를 1절-후렴-2절-후렴-브리지-후렴 구조로 16줄 내외로 써줘. 톤은 [밝음/감동/경쾌]"</li>
+                    <li>"Style of music: [장르], vocals: [남/여], mood: [분위기], title: [제목]"</li>
+                    <li>"같은 가사로 발라드/힙합/재즈 버전을 각각 만들어줘."</li>
+                </ul>
+            </div>
+                    <p><strong>프롬프트:</strong></p>
+                    <blockquote>
+                        선택한 후렴구: "[선택한 후렴구]"
+                        
+                        이 후렴구에 어울리는:
+                        - 1절 (4줄) - 우정의 시작을 담아서
+                        - 2절 (4줄) - 함께한 추억을 담아서
+                        - 브리지 (2줄) - 감정의 클라이맥스
+                        를 작성해줘.
+                        
+                        전체 구조: 1절 - 후렴 - 2절 - 후렴 - 브리지 - 후렴
+                    </blockquote>
+                </div>
+
+                <h4>작사 완성 예시</h4>
+                <div class="lyrics-example">
+                    <p><strong>제목: "함께라서 행복해"</strong></p>
+                    
+                    <p><em>[1절]</em><br>
+                    처음 만난 그날이 생각나<br>
+                    어색하게 웃었던 우리들<br>
+                    시간이 지나며 마음을 열고<br>
+                    이제는 소중한 친구가 됐어</p>
+
+                    <p><em>[후렴]</em><br>
+                    함께라서 행복해, 너와 나<br>
+                    웃음꽃이 피어나, 매일매일<br>
+                    함께라서 행복해, 우리들<br>
+                    영원히 변하지 않을 우정</p>
+
+                    <p><em>[2절]</em><br>
+                    힘들 때면 곁에서 위로해주고<br>
+                    기쁠 때면 함께 나눠주는 너<br>
+                    이런 친구 어디 또 있을까<br>
+                    너를 만나 정말 행운이야</p>
+
+                    <p><em>[브리지]</em><br>
+                    앞으로도 쭉 이 순간처럼<br>
+                    서로의 곁에 있어줄게</p>
+
+                    <p><em>[후렴 반복]</em></p>
+                </div>
+            </div>
+
+            <div class="content-section" style="background-color: #fce4ec; padding: 20px; border-radius: 10px; margin: 30px 0;">
+                <h3>🎼 3. AI로 음악 만들기</h3>
+                
+                <h4>🎵 무료 AI 음악 생성 도구</h4>
+                
+                <div class="comparison-box">
+                    <div class="good-example">
+                        <h5>🔥 Suno AI (최고 추천!)</h5>
+                        <p><strong>링크:</strong> <a href="https://suno.com" target="_blank" style="color: #1976d2; font-weight: bold;">suno.com →</a></p>
+                        <ul>
+                            <li>✅ 가사 입력 → 완전한 노래 생성 (멜로디+보컬)</li>
+                            <li>✅ 무료: 하루 10곡 생성 (50 credits/일)</li>
+                            <li>✅ 한글 가사 100% 지원!</li>
+                            <li>✅ 2분짜리 완성된 노래</li>
+                            <li>✅ 다양한 장르: K-pop, 발라드, 힙합, 록, 재즈...</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bad-example">
+                        <h5>🎹 Udio</h5>
+                        <p><strong>링크:</strong> <a href="https://udio.com" target="_blank" style="color: #1976d2; font-weight: bold;">udio.com →</a></p>
+                        <ul>
+                            <li>✅ 무료: 하루 12곡</li>
+                            <li>✅ 더 전문적인 음질</li>
+                            <li>❌ 한글 가사 지원 약함</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <h4>🚀 Suno AI 사용법 (Step-by-Step)</h4>
+                
+                <div class="note-box" style="background-color: #e8f5e9;">
+                    <p><strong>Step 1: 회원가입 (1분)</strong></p>
+                    <ol>
+                        <li><a href="https://suno.com" target="_blank" style="color: #d32f2f; font-weight: bold;">suno.com 접속 →</a></li>
+                        <li>"Sign Up" 버튼 클릭</li>
+                        <li>Google 계정으로 간편 로그인</li>
+                        <li>무료로 하루 50 credits 받기 (10곡 생성 가능)</li>
+                    </ol>
+                </div>
+
+                <div class="note-box" style="background-color: #e1f5fe;">
+                    <p><strong>Step 2: 노래 만들기</strong></p>
+                    <ol>
+                        <li>왼쪽 사이드바에서 "Create" 클릭</li>
+                        <li><strong>두 가지 모드 선택:</strong>
+                            <ul>
+                                <li><strong>Simple (간단):</strong> 주제만 입력하면 AI가 가사+멜로디 자동 생성</li>
+                                <li><strong>Custom (맞춤):</strong> 직접 작성한 가사 입력 + 스타일 지정</li>
+                            </ul>
+                        </li>
+                        <li>"Custom" 선택 (우리가 만든 가사 사용!)</li>
+                    </ol>
+                </div>
+
+                <div class="note-box" style="background-color: #fff3cd;">
+                    <p><strong>Step 3: 가사 & 스타일 입력</strong></p>
+                    <p><strong>Lyrics (가사):</strong> 위에서 만든 가사를 붙여넣기</p>
+                    <p><strong>Style of Music (음악 스타일):</strong> 장르 입력</p>
+                    <blockquote>
+                        예시 1: K-pop, upbeat, catchy, female vocals<br>
+                        예시 2: Ballad, emotional, piano, male vocals<br>
+                        예시 3: Hip hop, energetic, rap, beat-heavy<br>
+                        예시 4: Indie pop, dreamy, acoustic guitar
+                    </blockquote>
+                    <p><strong>Title (제목):</strong> 노래 제목 입력</p>
+                    <ol start="4">
+                        <li>"Create" 버튼 클릭!</li>
+                        <li>1-2분 대기 (AI가 노래 생성 중...)</li>
+                        <li>2개의 버전 자동 생성 → 들어보고 선택</li>
+                    </ol>
+                </div>
+
+                <div class="note-box" style="background-color: #f3e5f5;">
+                    <p><strong>Step 4: 다운로드 & 공유</strong></p>
+                    <ul>
+                        <li>마음에 드는 노래 클릭</li>
+                        <li>⋮ (점 3개) 메뉴 클릭 → "Download" (MP3 파일)</li>
+                        <li>"Share" 버튼으로 친구들에게 공유</li>
+                    </ul>
+                </div>
+
+                <h4>💡 Suno 프롬프트 작성 팁</h4>
+                <div class="example-box">
+                    <p><strong>장르 키워드:</strong></p>
+                    <ul>
+                        <li>K-pop, Ballad, Hip hop, Rock, Jazz, EDM, Indie, Folk, R&B</li>
+                    </ul>
+                    
+                    <p><strong>분위기 키워드:</strong></p>
+                    <ul>
+                        <li>Upbeat (경쾌한), Emotional (감성적), Dreamy (몽환적), Energetic (에너지 넘치는)</li>
+                        <li>Sad (슬픈), Happy (행복한), Romantic (로맨틱), Powerful (파워풀)</li>
+                    </ul>
+                    
+                    <p><strong>악기 키워드:</strong></p>
+                    <ul>
+                        <li>Piano, Guitar, Violin, Drums, Synth, Orchestra, Acoustic</li>
+                    </ul>
+                    
+                    <p><strong>보컬 키워드:</strong></p>
+                    <ul>
+                        <li>Male vocals (남성), Female vocals (여성), Choir (합창), Rap</li>
+                    </ul>
+                </div>
+
+                <h4>🔥 실습: 지금 바로 노래 만들기!</h4>
+                <div class="example-box">
+                    <p><strong>실습 과제:</strong></p>
+                    <ol>
+                        <li><a href="https://suno.com" target="_blank" style="color: #d32f2f; font-weight: bold;">Suno 접속 & 회원가입 →</a></li>
+                        <li>위에서 만든 "함께라서 행복해" 가사를 복사</li>
+                        <li>Custom 모드 선택 → 가사 붙여넣기</li>
+                        <li>스타일 입력: "K-pop, upbeat, catchy, female vocals"</li>
+                        <li>"Create" 클릭하고 노래 완성 기다리기</li>
+                        <li>생성된 2개 버전 듣고 마음에 드는 것 다운로드!</li>
+                    </ol>
+                    <p class="note">💡 창작 TIP: 같은 가사로 다른 장르(발라드, 힙합, 재즈)를 시도해보세요!</p>
+                </div>
+                        [Tempo: Medium-fast]<br>
+                        <br>
+                        [Verse 1]<br>
+                        [여기에 1절 가사]<br>
+                        <br>
+                        [Chorus]<br>
+                        [여기에 후렴 가사]<br>
+                        <br>
+                        [Verse 2]<br>
+                        [여기에 2절 가사]<br>
+                        <br>
+                        [Chorus]<br>
+                        [후렴 반복]
+                    </blockquote>
+                </div>
+
+                <p><strong>Step 3: 생성 및 다운로드</strong></p>
+                <ul>
+                    <li>Create 버튼 클릭</li>
+                    <li>30초~1분 대기</li>
+                    <li>마음에 드는 버전 선택 및 다운로드</li>
+                </ul>
+            </div>
+
+            <div class="content-section">
+                <h3>🎨 4. 나만의 노래 프로젝트</h3>
+                
+                <h4>전체 창작 프로세스</h4>
+                
+                <div class="process-box">
+                    <p><strong>1. 기획 단계</strong></p>
+                    <ul>
+                        <li>주제 선정 (개인적 경험 기반 추천)</li>
+                        <li>타겟 청중 정하기</li>
+                        <li>장르와 분위기 결정</li>
+                    </ul>
+
+                    <p><strong>2. 작사 단계</strong></p>
+                    <ul>
+                        <li>AI로 초안 작성</li>
+                        <li>내 감정과 경험 추가</li>
+                        <li>운율과 리듬 조정</li>
+                    </ul>
+
+                    <p><strong>3. 작곡 단계</strong></p>
+                    <ul>
+                        <li>AI 음악 생성 도구 사용</li>
+                        <li>여러 버전 생성 후 비교</li>
+                        <li>최종 버전 선택</li>
+                    </ul>
+
+                    <p><strong>4. 완성 단계</strong></p>
+                    <ul>
+                        <li>앨범 커버 디자인 (DALL-E 등 활용)</li>
+                        <li>가사 카드 제작</li>
+                        <li>SNS 공유</li>
+                    </ul>
+                </div>
+
+                <h4>AI로 앨범 커버 만들기</h4>
+                <div class="example-box">
+                    <p><strong>DALL-E 프롬프트:</strong></p>
+                    <blockquote>
+                        Album cover design for a song titled "함께라서 행복해" (Happy Together),
+                        illustration of two friends holding hands under a bright sky,
+                        warm colors, youthful and energetic vibe,
+                        modern minimalist style with Korean typography,
+                        3:3 square format
+                    </blockquote>
+                </div>
+            </div>
+
+            <div class="content-section">
+                <h3>💡 5. 실습 과제</h3>
+                
+                <h4>최종 프로젝트: 나만의 노래 만들기</h4>
+                
+                <p><strong>과제 1: 작사하기</strong></p>
+                <ol>
+                    <li>개인적으로 의미 있는 주제 선택</li>
+                    <li>AI와 브레인스토밍 (핵심 메시지, 키워드)</li>
+                    <li>후렴구 3가지 버전 만들고 하나 선택</li>
+                    <li>전체 가사 완성 (1절-후렴-2절-후렴-브리지-후렴)</li>
+                    <li>최소 3번 수정하여 완성도 높이기</li>
+                </ol>
+
+                <p><strong>과제 2: 작곡하기</strong></p>
+                <ol>
+                    <li>Suno AI 또는 Udio 사용</li>
+                    <li>같은 가사로 3가지 다른 스타일 생성</li>
+                    <li>가장 마음에 드는 버전 선택</li>
+                    <li>MP3 파일 다운로드</li>
+                </ol>
+
+                <p><strong>과제 3: 패키징하기</strong></p>
+                <ol>
+                    <li>AI로 앨범 커버 디자인</li>
+                    <li>가사 카드 제작 (Canva 활용)</li>
+                    <li>제작 과정 기록 (어떤 AI 도구를 어떻게 사용했는지)</li>
+                </ol>
+
+                <p><strong>과제 4: 공유하기</strong></p>
+                <ul>
+                    <li>친구나 가족에게 들려주기</li>
+                    <li>피드백 받기</li>
+                    <li>(선택) SNS나 SoundCloud에 업로드</li>
+                </ul>
+            </div>
+
+            <div class="content-section">
+                <h3>⚖️ 6. 창작 윤리 주의사항</h3>
+                <ul>
+                    <li>✅ AI가 도와줬다는 사실을 명시하세요</li>
+                    <li>✅ 자신의 감정과 경험을 반드시 추가하세요</li>
+                    <li>❌ 기존 가수의 노래를 AI로 복제하지 마세요</li>
+                    <li>❌ 타인의 가사를 그대로 사용하지 마세요</li>
+                    <li>✅ AI는 도구일 뿐, 창작자는 바로 여러분입니다!</li>
+                </ul>
+            </div>
+
+            <div class="content-section">
+                <h3>🔑 핵심 요약</h3>
+                <ul>
+                    <li>✅ AI 추천 시스템은 협업 필터링과 콘텐츠 기반 필터링을 사용합니다</li>
+                    <li>✅ AI는 작사의 초안을 만들지만, 내 감정을 담는 것은 내 몫입니다</li>
+                    <li>✅ Suno AI, Udio 등으로 노래를 직접 만들 수 있습니다</li>
+                    <li>✅ 창작 과정에서 AI 사용을 투명하게 밝혀야 합니다</li>
+                </ul>
+            </div>
+
+            <div class="navigation-buttons">
+                <a href="week7.html" class="btn btn-secondary">← 이전 주차</a>
+                <a href="ai_edu.html" class="btn btn-secondary">목차로 돌아가기</a>
+                <a href="week9.html" class="btn btn-primary">다음 주차 →</a>
+            </div>
+        </section>
+    </main>
+
+    <footer id="footer">
+        <p>&copy; 2025 나의 AI 프로젝트. All rights reserved.</p>
+    </footer>
+</body>
+</html>

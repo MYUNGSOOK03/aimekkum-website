@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>나의 AI 활용 포트폴리오</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1><a href="index.html">나의 AI 프로젝트</a></h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">홈</a></li>
+                <li><a href="ai_edu.html">AI 교육자료</a></li>
+                <li><a href="portfolio.html">나의 작업물</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <a id="top"></a>
+        <div style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
+            <h2 style="text-align: center; color: #2d3e50; font-family: 'Noto Serif KR', serif; font-size: 2.5em; font-weight: 600; margin-bottom: 20px;">
+                나의 작업물
+            </h2>
+            <p style="text-align: center; font-size: 1.15em; color: #555; margin-bottom: 30px; line-height: 1.8;">
+                AI 기술을 활용한 실전 프로젝트입니다. 왼쪽 메뉴에서 프로젝트를 선택하세요.
+            </p>
+
+            <div style="display: flex; gap: 28px; align-items: flex-start;">
+                <!-- Left Sidebar -->
+                <aside style="position: sticky; top: 100px; width: 240px; background: #f7f9fc; border: 1px solid #e6e9ef; border-radius: 12px; padding: 16px; height: fit-content;">
+                    <h3 style="margin: 6px 8px 12px; font-size: 1.05em; color: #2d3e50;">📚 프로젝트</h3>
+                    <nav>
+                        <a href="chatbot_project.html" style="display: block; padding: 10px 12px; border-radius: 8px; color: #2d3e50; text-decoration: none; margin-bottom: 6px; background: #eef7ff; border: 1px solid #e1ecff; font-weight: 600;">🤖 보험약관 챗봇</a>
+                        <a href="writing_project.html" style="display: block; padding: 10px 12px; border-radius: 8px; color: #2d3e50; text-decoration: none; margin-bottom: 6px; border: 1px solid #e6e9ef; font-weight: 600;">✍️ AI 글쓰기 에이전트</a>
+                        <hr style="border: none; border-top: 1px solid #e6e9ef; margin: 10px 0;">
+                        <a href="#top" style="display: block; padding: 8px 12px; border-radius: 8px; color: #2d3e50; text-decoration: none;">⬆️ 맨 위로</a>
+                    </nav>
+                </aside>
+
+                <!-- Main Content Area -->
+                <div style="flex: 1 1 auto; min-width: 0;">
+                    <!-- Welcome Section -->
+                    <section style="background: linear-gradient(135deg, #eef7ff 0%, #e1ecff 100%); border-radius: 20px; padding: 40px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); margin-bottom: 36px; text-align: center;">
+                        <div style="font-size: 4em; margin-bottom: 20px;">🎯</div>
+                        <h3 style="color: #2d3e50; font-size: 1.8em; margin: 0 0 16px; font-family: 'Noto Serif KR', serif;">프로젝트 포트폴리오</h3>
+                        <p style="color: #555; line-height: 1.9; font-size: 1.1em; margin: 0 0 24px;">
+                            AI 기술을 활용한 2개의 실전 프로젝트를 소개합니다.<br>
+                            왼쪽 메뉴에서 원하는 프로젝트를 선택하여 자세한 내용을 확인하세요.
+                        </p>
+                        <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
+                            <a href="chatbot_project.html" style="display:inline-block; padding:12px 24px; background:#4a6fa5; color:#fff; text-decoration:none; border-radius:8px; font-weight:600; font-size:1em;">🤖 챗봇 프로젝트 보기</a>
+                            <a href="writing_project.html" style="display:inline-block; padding:12px 24px; background:#2d3e50; color:#fff; text-decoration:none; border-radius:8px; font-weight:600; font-size:1em;">✍️ 글쓰기 프로젝트 보기</a>
+                        </div>
+                    </section>
+
+                    <!-- Project Preview Cards -->
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px; margin-bottom: 36px;">
+                        
+                        <!-- Preview Card 1 -->
+                        <div style="background: #fff; border: 2px solid #e6e9ef; border-radius: 16px; padding: 24px; transition: all 0.3s;" onmouseover="this.style.borderColor='#4a6fa5'; this.style.boxShadow='0 4px 16px rgba(74,111,165,0.15)';" onmouseout="this.style.borderColor='#e6e9ef'; this.style.boxShadow='none';">
+                            <div style="font-size: 2.5em; margin-bottom: 12px;">🤖</div>
+                            <h4 style="color: #2d3e50; margin: 0 0 12px; font-size: 1.3em;">보험약관 챗봇</h4>
+                            <p style="color: #666; line-height: 1.7; margin: 0 0 16px; font-size: 0.95em;">
+                                RAG 기반의 Q/A 챗봇. 보험약관을 자연어로 질문하고 근거와 함께 답변을 받을 수 있습니다.
+                            </p>
+                            <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 16px;">
+                                <span style="background: #f0f4f8; color: #4a6fa5; padding: 4px 10px; border-radius: 10px; font-size: 0.8em; font-weight: 600;">RAG</span>
+                                <span style="background: #f0f4f8; color: #4a6fa5; padding: 4px 10px; border-radius: 10px; font-size: 0.8em; font-weight: 600;">FAISS</span>
+                                <span style="background: #f0f4f8; color: #4a6fa5; padding: 4px 10px; border-radius: 10px; font-size: 0.8em; font-weight: 600;">Streamlit</span>
+                            </div>
+                            <a href="chatbot_project.html" style="color: #4a6fa5; text-decoration: none; font-weight: 600; font-size: 0.95em;">자세히 보기 →</a>
+                        </div>
+
+                        <!-- Preview Card 2 -->
+                        <div style="background: #fff; border: 2px solid #e6e9ef; border-radius: 16px; padding: 24px; transition: all 0.3s;" onmouseover="this.style.borderColor='#4a6fa5'; this.style.boxShadow='0 4px 16px rgba(74,111,165,0.15)';" onmouseout="this.style.borderColor='#e6e9ef'; this.style.boxShadow='none';">
+                            <div style="font-size: 2.5em; margin-bottom: 12px;">✍️</div>
+                            <h4 style="color: #2d3e50; margin: 0 0 12px; font-size: 1.3em;">AI 글쓰기 에이전트</h4>
+                            <p style="color: #666; line-height: 1.7; margin: 0 0 16px; font-size: 0.95em;">
+                                맞춤형 프롬프트 생성기. 목적과 문체를 설정하면 ChatGPT/뤼튼에 바로 사용할 수 있는 프롬프트를 생성합니다.
+                            </p>
+                            <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 16px;">
+                                <span style="background: #f0f4f8; color: #4a6fa5; padding: 4px 10px; border-radius: 10px; font-size: 0.8em; font-weight: 600;">프롬프트</span>
+                                <span style="background: #f0f4f8; color: #4a6fa5; padding: 4px 10px; border-radius: 10px; font-size: 0.8em; font-weight: 600;">문체변환</span>
+                                <span style="background: #f0f4f8; color: #4a6fa5; padding: 4px 10px; border-radius: 10px; font-size: 0.8em; font-weight: 600;">워크플로</span>
+                            </div>
+                            <a href="writing_project.html" style="color: #4a6fa5; text-decoration: none; font-weight: 600; font-size: 0.95em;">자세히 보기 →</a>
+                        </div>
+                    </div>
+
+                    <!-- Quick Action Links -->
+                    <section style="background: #f8f9fa; border-radius: 16px; padding: 24px; border: 1px solid #e6e9ef;">
+                        <h4 style="color: #2d3e50; margin: 0 0 16px; font-size: 1.2em;">🚀 바로 실행하기</h4>
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px;">
+                            <a href="chatbot.html" style="display: block; padding: 14px; background: #fff; color: #2d3e50; text-decoration: none; border-radius: 8px; border: 1px solid #e6e9ef; text-align: center; font-weight: 600; transition: all 0.3s;" onmouseover="this.style.background='#4a6fa5'; this.style.color='#fff';" onmouseout="this.style.background='#fff'; this.style.color='#2d3e50';">
+                                🤖 챗봇 실행
+                            </a>
+                            <a href="writing_agent.html" style="display: block; padding: 14px; background: #fff; color: #2d3e50; text-decoration: none; border-radius: 8px; border: 1px solid #e6e9ef; text-align: center; font-weight: 600; transition: all 0.3s;" onmouseover="this.style.background='#4a6fa5'; this.style.color='#fff';" onmouseout="this.style.background='#fff'; this.style.color='#2d3e50';">
+                                ✍️ 글쓰기 에이전트
+                            </a>
+                            <a href="ai_edu.html" style="display: block; padding: 14px; background: #fff; color: #2d3e50; text-decoration: none; border-radius: 8px; border: 1px solid #e6e9ef; text-align: center; font-weight: 600; transition: all 0.3s;" onmouseover="this.style.background='#4a6fa5'; this.style.color='#fff';" onmouseout="this.style.background='#fff'; this.style.color='#2d3e50';">
+                                📚 교육자료
+                            </a>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 AI MEKKUM - 함께 채워가는 AI 시대</p>
+        <p style="font-size: 0.9em; opacity: 0.8;">나의 AI 프로젝트 포트폴리오</p>
+    </footer>
+
+</body>
+</html>

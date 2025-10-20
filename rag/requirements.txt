@@ -1,0 +1,9 @@
+streamlit==1.38.0
+pypdf==4.3.1
+sentence-transformers==3.1.1
+faiss-cpu==1.8.0.post1
+uvicorn==0.30.6
+fastapi==0.115.0
+transformers==4.44.2
+accelerate==0.34.2
+torch==2.4.1

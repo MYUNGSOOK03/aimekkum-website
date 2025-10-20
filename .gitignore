@@ -1,0 +1,28 @@
+# Python virtual environment
+.venv/
+venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# RAG data and index (optional - you can choose to include these)
+rag/data/*.pdf
+rag/index/*.index
+rag/index/*.json
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor files
+.vscode/
+.idea/
+
+# Logs
+*.log
+
+# Backup files
+*_old.html
+*_backup.html
+portfolio_cards.html

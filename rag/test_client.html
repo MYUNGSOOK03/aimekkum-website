@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RAG API 테스트</title>
+  <style>
+    body { font-family: system-ui, -apple-system, Segoe UI, Roboto, 'Noto Sans KR', sans-serif; padding: 24px; }
+    .row { margin-bottom: 12px; }
+    textarea, input { width: 100%; padding: 10px; font-size: 14px; }
+    button { padding: 10px 14px; background:#2d3e50; color:#fff; border:0; border-radius:8px; cursor:pointer; }
+    pre { background:#f7f9fc; padding:12px; border-radius:8px; overflow:auto; }
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/axios@1.6.8/dist/axios.min.js"></script>
+</head>
+<body>
+  <h1>RAG API 테스트 (Axios)</h1>
+  <p> 로컬 API가 8000 포트에서 실행 중이어야 합니다. </p>
+
+  <div class="row">
+    <button id="health">/health 체크</button>
+  </div>
+
+  <div class="row">
+    <label>질문</label>
+    <input id="query" value="입원비 청구 시 필요한 서류는?" />
+  </div>
+  <div class="row">
+    <button id="ask">/ask 호출</button>
+  </div>
+
+  <h3>응답</h3>
+  <pre id="out">(여기에 응답이 표시됩니다)</pre>
+
+  <script>
+    const API = 'http://localhost:8000'; // FastAPI 주소
+    const out = document.getElementById('out');
+
+    document.getElementById('health').onclick = async () => {
+      out.textContent = '요청 중...';
+      try {
+        const res = await axios.get(`${API}/health`, { withCredentials: true });
+        out.textContent = JSON.stringify(res.data, null, 2);
+      } catch (e) {
+        out.textContent = e.toString();
+      }
+    };
+
+    document.getElementById('ask').onclick = async () => {
+      out.textContent = '요청 중...';
+      try {
+        const query = document.getElementById('query').value;
+        const res = await axios.post(`${API}/ask`, { query, top_k: 4 }, {
+          headers: { 'Content-Type': 'application/json' },
+          withCredentials: true,
+        });
+        out.textContent = JSON.stringify(res.data, null, 2);
+      } catch (e) {
+        out.textContent = e.toString();
+      }
+    };
+  </script>
+</body>
+</html>
